@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-const baseUrl = 'http://localhost:8080/';
+const baseUrl = 'https://xmen-dna-be.herokuapp.com/';
 @Injectable({
   providedIn: 'root'
 })
