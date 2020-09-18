@@ -1,0 +1,29 @@
+<div>
+  <span>Las letras de los Strings solo pueden ser: (A,T,C,G), las
+    cuales representa cada base nitrogenada del ADN.</span>
+</div>
+<form [formGroup]="form" (submit)="submit()">
+  <div *ngIf="isNotValidForm()" >
+    <span>Los campos son requeridos para continuar con su validación</span>
+  </div>
+<table>
+  <tr *ngFor="let word of dna; let indexV=index">
+
+    <td *ngFor="let letter of word; let indexH=index">
+
+      <input id="{{indexV}}-{{indexH}}"
+      [(ngModel)]="dnsInputs[indexV][indexH]" name="{{indexV}}-{{indexH}}"
+       maxlength="1" appInputOnlyDna
+       required
+       formControlName="{{indexV}}{{indexH}}"
+       [ngClass]="{'red-border-class': form.controls[indexV + '' + indexH].touched && form.controls[indexV + '' + indexH].hasError('required')}"/>
+
+    </td>
+  </tr>
+</table>
+<div class="card-body">
+  <div class="col-12">
+    <button class="btn btn-success m-1"  type="submit"> Is Mutant </button>
+  </div>
+</div>
+</form>
